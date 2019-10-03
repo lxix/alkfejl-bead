@@ -1,5 +1,7 @@
 # Alkalmazások fejlesztése - Beadandó - 2019/20/1
 
+Beadandó feladat az ELTE Informatikai Karon, az Alkalmazások fejlesztése tárgyból. A program segítségével a felhasználóknak lehetőségük lesz recepteket böngészni és feltölteni.
+
 ## Feladat funkcionális követelményei
 
 - **Adatbázis:**
@@ -12,6 +14,18 @@ Java Spring Boot, MVC modell, REST API és authorizált végpontok használatáv
 Angular (6+) keretrendszer használatával legalább három tábla adatait szerkeszthetősége a felületen: *lista, új, módosít, töröl (vagy inaktívvá tesz)*. Újat hozzáadni, meglévőt módosítani vagy törölni csak hitelesítés után elérhető funkció (autentikáció). A felhasználó csak a megfelelő adatokhoz férhet hozzá (autorizáció), azaz csak a saját receptjeit törölheti és módosíthatja. A szerverrel AJAX kérésekkel történik a kommunikáció.
 
 ## Feladat nem funkcionális követelményei
+
+- **Mindenki által elérhető funkciók**
+Regisztráció, feltöltött receptek böngészése
+
+- **Regisztráció után elérhető funkciók**
+Receptek, hozzávalók feltöltése; A saját feltöltött receptek módosítása, törlése.
+
+- **Adminisztrátorok által elérhető funkciók**
+Az újonann feltöltött receptek elfogadása; Minden feltöltött recept módosítása, törlése.
+
+- **Egyéb elvárások**
+Letisztult felhasználói felület, könnyű kezelhetőség, biztonságos működés
 
 ## Szakterületi fogalomjegyzék
 
