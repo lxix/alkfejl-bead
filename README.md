@@ -15,28 +15,28 @@ Angular (6+) keretrendszer használatával legalább három tábla adatait szerk
 
 ## Szakterületi fogalomjegyzék
 
-- **H2 Database Engine**
+- **H2 Database Engine:**
 A H2 és a hasonló adatbáziskezelők legfőbb előnyei közé tartozik, hogy akár kliens-szerver üzemmódban akár önálló, egygépes alkalmazásainkban is használhatjuk, nem kell külön telepíteni, jól hordozható, és 100%-ban Java, azaz ha Javaban programozunk, belül maradhatunk a használt fogalmi/gondolkodási tartományon.
 
-- **Java Spring**
+- **Java Spring:**
 A Spring egy nyílt forráskódú, inversion of controlt megvalósító Java alkalmazás keretrendszer.
 
-- **MVC modell**
+- **MVC modell:**
 A modell-nézet-vezérlő (MNV) (angolul model-view-controller) a szoftvertervezésben használatos szerkezeti minta.
 
-- **REST API**
+- **REST API:**
 A REST (Representational State Transfer) egy szoftverarchitektúra típus, elosztott kapcsolat (loose coupling), nagy, internet alapú rendszerek számára, amilyen például a világháló. Az alkalmazásprogramozási felület vagy alkalmazásprogramozási interfész (angolul application programming interface, röviden API) egy program vagy rendszerprogram azon eljárásainak (szolgáltatásainak) és azok használatának dokumentációja, amelyet más programok felhasználhatnak.
 
-- **Angular**
+- **Angular:**
 Az AngularJS egy Google által fejlesztett, nyílt forráskódú JavaScript keretrendszer dinamikus webes alkalmazásokhoz. Segítségével nagyban egyszerűsödik a webes alkalmazások frontend fejlesztése.
 
 ## Szerepkörök
 
-- **Felhasználó**
+- **Felhasználó:**
 A felhasználónak lehetősége lesz az oldalon megjelenített receptek megtekintésére. Csak olvasási jogai vannak, ezeket regisztrációval tudja bővíteni írási jogokkal.
 
-- **Regisztrált felhasználó**
+- **Regisztrált felhasználó:**
 A regisztrált felhasználónak lehetősége lesz az oldalon megjelenített receptek megtekintésére és saját receptek létrehozására, szerkesztésére és törlésére. Olvasási és írási joggal rendelkezik.
 
-- **Admin**
+- **Admin:**
 Az admin olvasási és írási joggal rendelkezik minden regisztrált felhasználó receptjei felett. 
