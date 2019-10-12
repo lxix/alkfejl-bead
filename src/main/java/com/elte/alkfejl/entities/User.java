@@ -1,16 +1,9 @@
 package com.elte.alkfejl.entities;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,28 +16,47 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-class User extends BaseWithUpdateInfo {
+public class User extends BaseEntity {
 
     @Column
     private String userName;
 
     @Column
+    @JsonIgnore
     private String password;
 
-    @OneToMany(targetEntity = Recipe.class, mappedBy = "createdBy")
-    private List<Recipe> createdIssue;
+    @Column(updatable = false, nullable = false)
+    private LocalDateTime createdAt;
 
+    @Column(updatable = false, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @JsonIgnore
+    @OneToMany(targetEntity = Recipe.class, mappedBy = "createdBy")
+    private List<Recipe> createdRecipe;
+
+    @JsonIgnore
     @OneToMany(targetEntity = Recipe.class, mappedBy = "updatedBy")
-    private List<Recipe> updatedIssue;
+    private List<Recipe> updatedRecipe;
 
 //    @OneToMany(targetEntity = Message.class, mappedBy = "createdBy")
 //    private List<Message> createdMessage;
 
-    @OneToMany(targetEntity = User.class, mappedBy = "createdBy")
-    private List<Recipe> createdUser;
+    @PrePersist
+    protected void prePersist() {
+        if (createdAt == null) createdAt = LocalDateTime.now();
+        if (updatedAt == null) updatedAt = LocalDateTime.now();
+    }
 
-    @OneToMany(targetEntity = User.class, mappedBy = "updatedBy")
-    private List<Recipe> updatedUser;
+    @PreUpdate
+    protected void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreRemove
+    protected void preRemove() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }
 
 

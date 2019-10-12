@@ -6,10 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 
 @Entity
@@ -18,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-class Recipe extends BaseWithUpdateInfo {
+public class Recipe extends BaseWithUpdateInfo {
 
     @Column
     private String title;
@@ -27,12 +25,12 @@ class Recipe extends BaseWithUpdateInfo {
     private String description;
 
     @Column
-    private String place;
+    private String body;
 
 //    @OneToMany(targetEntity = Message.class, mappedBy = "issue")
 //    private List<Message> message;
 //
-//    @ManyToMany(targetEntity = Label.class)
-//    private List<Label> label;
+    @ManyToMany(targetEntity = Label.class)
+    private List<Label> label;
 
 }
