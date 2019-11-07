@@ -4,11 +4,11 @@ import com.elte.alkfejl.entities.Label;
 import com.elte.alkfejl.entities.Recipe;
 import com.elte.alkfejl.repositories.RecipeRepository;
 import com.elte.alkfejl.repositories.UserRepository;
+import com.elte.alkfejl.security.AuthenticatedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 @CrossOrigin
@@ -21,6 +21,9 @@ public class RecipeController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AuthenticatedUser authenticatedUser;
 
     @GetMapping("")
     public ResponseEntity<Iterable<Recipe>> getAll() {
@@ -47,7 +50,9 @@ public class RecipeController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Recipe> update(@RequestBody Recipe entity){
+    public ResponseEntity<Recipe> update(@RequestBody Recipe entity) {
+        entity.setCreatedBy(authenticatedUser.getUser());
+        entity.setUpdatedBy(authenticatedUser.getUser());
         return ResponseEntity.ok(recipeRepository.save(entity));
     }
 
