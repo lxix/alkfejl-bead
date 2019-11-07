@@ -1,15 +1,10 @@
 package com.elte.alkfejl.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 import java.util.List;
+import javax.persistence.*;
+
+import lombok.*;
 
 @Entity
 @Table(name = "labels")
@@ -17,14 +12,29 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Label extends BaseWithCreationInfo {
+public class Label extends BaseWithUpdateInfo {
 
     @Column
     private String label;
 
-    @JsonIgnore
     @ManyToMany(targetEntity = Recipe.class, mappedBy = "label")
     private List<Recipe> recipes;
+
+    @PrePersist
+    protected void prePersist() {
+        if (createdAt == null) createdAt = LocalDateTime.now();
+        if (updatedAt == null) updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreRemove
+    protected void preRemove() {
+        this.updatedAt = LocalDateTime.now();
+    }
 
 }
 
