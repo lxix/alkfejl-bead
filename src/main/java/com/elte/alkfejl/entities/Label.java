@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @Entity
@@ -16,6 +17,10 @@ public class Label extends BaseWithUpdateInfo {
 
     @Column
     private String label;
+
+    @JsonIgnore
+    @ManyToMany(targetEntity = Recipe.class, mappedBy = "label")
+    private List<Recipe> recipes;
 
     @PrePersist
     protected void prePersist() {
