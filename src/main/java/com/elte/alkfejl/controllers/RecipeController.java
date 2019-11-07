@@ -2,6 +2,7 @@ package com.elte.alkfejl.controllers;
 
 import com.elte.alkfejl.entities.Label;
 import com.elte.alkfejl.entities.Recipe;
+import com.elte.alkfejl.entities.Role;
 import com.elte.alkfejl.repositories.LabelRepository;
 import com.elte.alkfejl.repositories.RecipeRepository;
 import com.elte.alkfejl.repositories.UserRepository;
@@ -46,7 +47,8 @@ public class RecipeController {
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> update(@PathVariable Long id, @RequestBody Recipe recipe) {
         Optional<Recipe> oRecipe = recipeRepository.findById(id);
-        if (oRecipe.isPresent() && authenticatedUser.getUser().equals(oRecipe.get().getCreatedBy())) {
+        if (oRecipe.isPresent() && (authenticatedUser.getUser().getId().equals(oRecipe.get().getCreatedBy().getId())
+                || authenticatedUser.getUser().getRole().equals(Role.ROLE_ADMIN))) {
             recipe.setId(id);
             recipe.setUpdatedBy(authenticatedUser.getUser());
             return ResponseEntity.ok(recipeRepository.save(recipe));
@@ -64,11 +66,14 @@ public class RecipeController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Recipe> delete(@PathVariable Long id) {
         Optional<Recipe> oRecipe = recipeRepository.findById(id);
-        if (!oRecipe.isPresent() || !authenticatedUser.getUser().equals(oRecipe.get().getCreatedBy())) {
-            return ResponseEntity.notFound().build();
+        if (oRecipe.isPresent() &&
+                (authenticatedUser.getUser().getId().equals(oRecipe.get().getCreatedBy().getId())
+                        || authenticatedUser.getUser().getRole().equals(Role.ROLE_ADMIN))) {
+            recipeRepository.deleteById(id);
+            return ResponseEntity.ok().build();
         }
-        recipeRepository.deleteById(id);
-        return ResponseEntity.ok().build();
+
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("createdby/{id}")
