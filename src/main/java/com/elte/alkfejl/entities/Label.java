@@ -17,9 +17,6 @@ public class Label extends BaseWithUpdateInfo {
     @Column
     private String label;
 
-    @ManyToMany(targetEntity = Recipe.class, mappedBy = "label")
-    private List<Recipe> recipes;
-
     @PrePersist
     protected void prePersist() {
         if (createdAt == null) createdAt = LocalDateTime.now();
