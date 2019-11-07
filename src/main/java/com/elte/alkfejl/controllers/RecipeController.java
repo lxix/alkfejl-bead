@@ -44,6 +44,7 @@ public class RecipeController {
         Optional<Recipe> oRecipe = recipeRepository.findById(id);
         if (oRecipe.isPresent()) {
             recipe.setId(id);
+            recipe.setUpdatedBy(authenticatedUser.getUser());
             return ResponseEntity.ok(recipeRepository.save(recipe));
         }
         return ResponseEntity.notFound().build();
