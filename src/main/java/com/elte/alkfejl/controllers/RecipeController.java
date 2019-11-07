@@ -2,6 +2,7 @@ package com.elte.alkfejl.controllers;
 
 import com.elte.alkfejl.entities.Label;
 import com.elte.alkfejl.entities.Recipe;
+import com.elte.alkfejl.repositories.LabelRepository;
 import com.elte.alkfejl.repositories.RecipeRepository;
 import com.elte.alkfejl.repositories.UserRepository;
 import com.elte.alkfejl.security.AuthenticatedUser;
@@ -24,6 +25,9 @@ public class RecipeController {
 
     @Autowired
     private AuthenticatedUser authenticatedUser;
+
+    @Autowired
+    private LabelRepository labelRepository;
 
     @GetMapping("")
     public ResponseEntity<Iterable<Recipe>> getAll() {
