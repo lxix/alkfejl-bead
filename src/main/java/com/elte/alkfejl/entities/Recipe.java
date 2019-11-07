@@ -18,18 +18,15 @@ import lombok.*;
 @EqualsAndHashCode
 public class Recipe extends BaseWithUpdateInfo {
 
-    @Column
+    @Column(nullable = false)
     private String title;
 
-    @Column
+    @Column(nullable = false)
     private String description;
 
-    @Column
+    @Column(nullable = false)
     private String body;
 
-//    @OneToMany(targetEntity = Message.class, mappedBy = "issue")
-//    private List<Message> message;
-//
     @ManyToMany(targetEntity = Label.class)
     private List<Label> label;
 

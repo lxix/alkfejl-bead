@@ -18,12 +18,16 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 public class User extends BaseEntity {
 
-    @Column
+    @Column(nullable = false)
     private String userName;
 
-    @Column
+    @Column (nullable = false)
     @JsonIgnore
     private String password;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
