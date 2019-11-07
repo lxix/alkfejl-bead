@@ -1,11 +1,8 @@
 package com.elte.alkfejl.entities;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.*;
 
@@ -29,5 +26,21 @@ public class Recipe extends BaseWithUpdateInfo {
 
     @ManyToMany(targetEntity = Label.class)
     private List<Label> label;
+
+    @PrePersist
+    protected void prePersist() {
+        if (createdAt == null) createdAt = LocalDateTime.now();
+        if (updatedAt == null) updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreRemove
+    protected void preRemove() {
+        this.updatedAt = LocalDateTime.now();
+    }
 
 }

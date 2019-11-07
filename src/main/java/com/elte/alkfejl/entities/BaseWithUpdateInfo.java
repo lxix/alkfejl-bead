@@ -11,10 +11,10 @@ import lombok.Data;
 @MappedSuperclass
 class BaseWithUpdateInfo extends BaseWithCreationInfo {
     @Column(updatable = false, nullable = false)
-    private LocalDateTime updatedAt;
+    protected LocalDateTime updatedAt;
 
     @JoinColumn(updatable = false, nullable = false)
     @ManyToOne(targetEntity = User.class)
-    private User updatedBy;
+    protected User updatedBy;
 
 }
