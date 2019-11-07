@@ -46,7 +46,7 @@ public class RecipeController {
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> update(@PathVariable Long id, @RequestBody Recipe recipe) {
         Optional<Recipe> oRecipe = recipeRepository.findById(id);
-        if (oRecipe.isPresent()) {
+        if (oRecipe.isPresent() && authenticatedUser.getUser().equals(oRecipe.get().getCreatedBy())) {
             recipe.setId(id);
             recipe.setUpdatedBy(authenticatedUser.getUser());
             return ResponseEntity.ok(recipeRepository.save(recipe));
@@ -63,8 +63,8 @@ public class RecipeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Recipe> delete(@PathVariable Long id) {
-        Optional<Recipe> issue = recipeRepository.findById(id);
-        if (!issue.isPresent()) {
+        Optional<Recipe> oRecipe = recipeRepository.findById(id);
+        if (!oRecipe.isPresent() || !authenticatedUser.getUser().equals(oRecipe.get().getCreatedBy())) {
             return ResponseEntity.notFound().build();
         }
         recipeRepository.deleteById(id);
