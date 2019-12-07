@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <h1>Recipes:</h1>
+  </div>
+  <div>
+    <div *ngFor="let recipe of recipes">
+      <hr>
+      {{ recipe.title }} created by {{ recipe.createdBy.userName }} at {{ recipe.createdAt }}<br>
+      {{ recipe.description }}
+    </div>
+  </div>
+</div>
