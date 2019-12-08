@@ -1,9 +1,10 @@
 <mat-toolbar color="primary">
-  <button mat-button href="/">
-    <mat-icon>home</mat-icon>
-    Issue tracker
-  </button>
-  <button mat-button href="/issues">My issues</button>
-  <button mat-button href="/issues/add">New issues</button>
+    <button mat-button href="/">
+      Recipe database
+    </button>
+    <button mat-button href="/recipes">Recipes</button>
+    <button mat-button href="/labels">Labels</button>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<div class="container pt-4">
+    <router-outlet></router-outlet>
+</div>

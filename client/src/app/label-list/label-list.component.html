@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-6">
+    <h1>Ingredients:</h1>
+  </div>
+  <div class="col-6">
+    <div class="float-right">
+      <button class="btn btn-secondary">Add new</button>
+    </div>
+  </div>
+  <div class="col-12">
+    <div *ngFor="let label of labels">
+      <hr>
+      {{ label.label }} created by {{ label.createdBy.userName }} at {{ label.createdAt }}
+    </div>
+  </div>
+</div>
+
+

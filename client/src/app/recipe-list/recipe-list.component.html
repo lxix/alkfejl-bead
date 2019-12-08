@@ -1,12 +1,19 @@
-<div>
-  <div>
+<div class="row">
+  <div class="col-6">
     <h1>Recipes:</h1>
   </div>
-  <div>
+  <div class="col-6">
+    <div class="float-right">
+      <button class="btn btn-secondary">Add new</button>
+    </div>
+  </div>
+  <div class="col-12">
     <div *ngFor="let recipe of recipes">
       <hr>
       {{ recipe.title }} created by {{ recipe.createdBy.userName }} at {{ recipe.createdAt }}<br>
       {{ recipe.description }}
+      <br>
+      <a href="/recipe/{{ recipe.id }}">Lemme see</a>
     </div>
   </div>
 </div>

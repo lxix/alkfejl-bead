@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-6">
+    <h1>{{recipe.title}}</h1>
+  </div>
+  <div class="col-6">
+    <div class="float-right">
+      <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+  <div class="col-6">
+    <h3>{{recipe.description}}</h3>
+    <h6>Created by {{recipe.createdBy.userName}}</h6>
+    <p>{{recipe.body}}</p>
+
+  </div>
+  <div class="col-6">
+    <h4>Edit recipe</h4>
+    <form>
+      <div class="form-group">
+        <label for="new-title">New title</label>
+        <input type="text" class="form-control" id="new-title" placeholder="New title">
+      </div>
+      <div class="form-group">
+        <label for="new-description">New description</label>
+        <input type="text" class="form-control" id="new-description" placeholder="New description">
+      </div>
+      <div class="form-group">
+        <label for="new-body">New body</label>
+        <textarea type="text" class="form-control" id="new-body" placeholder="New body"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

@@ -11,12 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { LabelListComponent } from './label-list/label-list.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    LabelListComponent,
+    RecipeComponent
   ],
   imports: [
     NgbModule,
@@ -29,7 +33,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
