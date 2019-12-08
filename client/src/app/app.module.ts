@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { LabelListComponent } from './label-list/label-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     HomeComponent,
     RecipeListComponent,
     LabelListComponent,
-    RecipeComponent
+    RecipeComponent,
+    NewRecipeComponent
   ],
   imports: [
     NgbModule,
