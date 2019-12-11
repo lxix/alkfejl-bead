@@ -4,14 +4,13 @@
   </div>
   <div class="col-6">
     <div class="float-right">
-      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-danger" (click)="deleteRecipe(recipe.id);">Delete</button>
     </div>
   </div>
   <div class="col-6">
     <h3>{{recipe.description}}</h3>
     <h6>Created by {{recipe.createdBy.userName}}</h6>
     <p>{{recipe.body}}</p>
-
   </div>
   <div class="col-6">
     <h4>Edit recipe</h4>

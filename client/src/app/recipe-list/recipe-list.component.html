@@ -13,7 +13,7 @@
       {{ recipe.title }} created by {{ recipe.createdBy.userName }} at {{ recipe.createdAt }}<br>
       {{ recipe.description }}
       <br>
-      <a href="/recipe/{{ recipe.id }}">Lemme see</a>
+      <a [routerLink]="['/recipe/' + recipe.id]">View recipe</a>
     </div>
   </div>
 </div>

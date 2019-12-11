@@ -4,7 +4,6 @@ import { RoutingModule } from './routing/routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,7 +27,6 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     NgbModule,
     RoutingModule,
     BrowserModule,
-    AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
