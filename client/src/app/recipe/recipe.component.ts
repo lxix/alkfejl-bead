@@ -17,6 +17,8 @@ export class RecipeComponent implements OnInit {
       'Authorization': 'Basic YWRtaW46cGFzc3dvcmQ=' // TODO: ezt a routet publicra állítani
     })
   };
+  data;
+
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
@@ -30,6 +32,21 @@ export class RecipeComponent implements OnInit {
     });
   }
 
+  onSubmit(event: any, id) {
+
+    this.data = {
+      title: event.target.title.value,
+      description: event.target.description.value,
+      body: event.target.body.value
+    };
+
+    return this.http
+      .put(this.recipeUrl + '/' + id, JSON.stringify(this.data), {headers: this.httpOptions.headers})
+      .toPromise()
+      .then(res => console.log(res));
+
+  }
+
   deleteRecipe(id) {
     return this.http.delete(this.recipeUrl + '/' + id, {headers: this.httpOptions.headers})
       .toPromise()
@@ -38,5 +55,6 @@ export class RecipeComponent implements OnInit {
         console.log(e);
       });
   }
+
 
 }

@@ -14,18 +14,18 @@
   </div>
   <div class="col-6">
     <h4>Edit recipe</h4>
-    <form>
+    <form (submit)="onSubmit($event, recipe.id);">
       <div class="form-group">
-        <label for="new-title">New title</label>
-        <input type="text" class="form-control" id="new-title" placeholder="New title">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="New title">
       </div>
       <div class="form-group">
-        <label for="new-description">New description</label>
-        <input type="text" class="form-control" id="new-description" placeholder="New description">
+        <label for="description">Description</label>
+        <input type="text" name="description" class="form-control" id="description" placeholder="New description">
       </div>
       <div class="form-group">
-        <label for="new-body">New body</label>
-        <textarea type="text" class="form-control" id="new-body" placeholder="New body"></textarea>
+        <label for="body">Body</label>
+        <textarea type="text" name="body" class="form-control" id="body" value="" placeholder="New body"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
