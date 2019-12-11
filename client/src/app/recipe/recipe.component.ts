@@ -31,7 +31,6 @@ export class RecipeComponent implements OnInit {
   }
 
   deleteRecipe(id) {
-    console.log(id);
     return this.http.delete(this.recipeUrl + '/' + id, {headers: this.httpOptions.headers})
       .toPromise()
       .then(() => null)

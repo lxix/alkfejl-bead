@@ -13,6 +13,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { LabelListComponent } from './label-list/label-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     MatIconModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

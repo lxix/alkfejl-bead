@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
-    <button mat-button href="/">
+    <button mat-button [routerLink]="['/']">
       Recipe database
     </button>
-    <button mat-button href="/recipes">Recipes</button>
-    <button mat-button href="/labels">Labels</button>
+    <button mat-button [routerLink]="['/recipes']">Recipes</button>
+    <button mat-button [routerLink]="['/labels']">Labels</button>
 </mat-toolbar>
 <div class="container pt-4">
     <router-outlet></router-outlet>
