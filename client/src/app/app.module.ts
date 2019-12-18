@@ -15,6 +15,12 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import {FormsModule} from "@angular/forms";
 
+import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from './login/login.component';
+import {Http} from "./services/http-client";
+import { LoggedInComponent } from './logged-in/logged-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +28,10 @@ import {FormsModule} from "@angular/forms";
     RecipeListComponent,
     LabelListComponent,
     RecipeComponent,
-    NewRecipeComponent
+    NewRecipeComponent,
+    LoginComponent,
+    LoggedInComponent,
+    SignUpComponent
   ],
   imports: [
     NgbModule,
@@ -35,7 +44,11 @@ import {FormsModule} from "@angular/forms";
     HttpClientModule,
     FormsModule
   ],
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule,
+    CookieService,
+    Http
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

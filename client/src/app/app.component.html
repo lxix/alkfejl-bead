@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
-    <button mat-button [routerLink]="['/']">
-      Recipe database
-    </button>
+    <button mat-button [routerLink]="['/']">Recipe database</button>
     <button mat-button [routerLink]="['/recipes']">Recipes</button>
     <button mat-button [routerLink]="['/labels']">Labels</button>
+  ---
+    <button mat-button [routerLink]="['/login']" *ngIf="!loggedIn()">Sign in</button>
+    <button mat-button [routerLink]="['/register']" *ngIf="!loggedIn()">Sign up</button>
+    <button mat-button (click)="logout()" *ngIf="loggedIn()">Sign out</button>
 </mat-toolbar>
 <div class="container pt-4">
     <router-outlet></router-outlet>
