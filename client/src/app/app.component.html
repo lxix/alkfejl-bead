@@ -2,7 +2,7 @@
     <button mat-button [routerLink]="['/']">Recipe database</button>
     <button mat-button [routerLink]="['/recipes']">Recipes</button>
     <button mat-button [routerLink]="['/labels']">Labels</button>
-  ---
+  <span class="fill-space"></span>
     <button mat-button [routerLink]="['/login']" *ngIf="!loggedIn()">Sign in</button>
     <button mat-button [routerLink]="['/register']" *ngIf="!loggedIn()">Sign up</button>
     <button mat-button (click)="logout()" *ngIf="loggedIn()">Sign out</button>

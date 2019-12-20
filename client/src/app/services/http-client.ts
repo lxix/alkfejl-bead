@@ -15,8 +15,28 @@ export class Http {
   ){
   }
 
-  register(options: object): boolean {
-    return false; // TODO: impl
+  register(username: string, password: string, again: string): boolean {
+
+    if (password === again) {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        })
+      };
+
+      this.http
+        .post('http://localhost:4200/api/register', JSON.stringify({}), {headers: httpOptions.headers})
+        .subscribe(next => {
+        }, error => {
+          console.log(error);
+        });
+    }
+
+
+
+    console.log(username, password, again);
+    return true;
   }
 
   login(username: string, password: string) {

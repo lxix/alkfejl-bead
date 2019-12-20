@@ -15,4 +15,13 @@ export class SignUpComponent implements OnInit {
     this.http.anonym()
   }
 
+  onSubmit(event: any) {
+    if (event.target.username.value == '' || event.target.password.value == '' || event.target.again.value == '') {
+      alert('Minden mező kitöltése kötelező');
+    } else {
+      return this.http.register(event.target.username.value, event.target.password.value, event.target.again.value);
+
+    }
+  }
+
 }
