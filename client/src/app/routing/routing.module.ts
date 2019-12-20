@@ -9,13 +9,15 @@ import { NewRecipeComponent } from "../new-recipe/new-recipe.component";
 import {LoginComponent} from "../login/login.component";
 import {LoggedInComponent} from "../logged-in/logged-in.component";
 import {SignUpComponent} from "../sign-up/sign-up.component";
+import { NewLabelComponent} from "../new-label/new-label.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'recipes', component: RecipeListComponent },
   { path: 'recipe/:id', component: RecipeComponent },
   { path: 'new-recipe', component: NewRecipeComponent },
-  /*{ path: 'labels', component: LabelListComponent }*/
+  { path: 'labels', component: LabelListComponent },
+  { path: 'new-label', component: NewLabelComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logged-in', component: LoggedInComponent },
   { path: 'register', component: SignUpComponent }

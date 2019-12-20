@@ -15,7 +15,7 @@ export class Http {
   ){
   }
 
-  register(username: string, password: string, again: string): boolean {
+  register(username: string, password: string, again: string) {
 
     if (password === again) {
       const httpOptions = {
@@ -26,17 +26,13 @@ export class Http {
       };
 
       this.http
-        .post('http://localhost:4200/api/register', JSON.stringify({}), {headers: httpOptions.headers})
+        .post('http://localhost:4200/api/register', JSON.stringify({'password': password, 'username': username}), {headers: httpOptions.headers})
         .subscribe(next => {
         }, error => {
           console.log(error);
         });
     }
 
-
-
-    console.log(username, password, again);
-    return true;
   }
 
   login(username: string, password: string) {

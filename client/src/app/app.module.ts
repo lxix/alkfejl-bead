@@ -21,6 +21,7 @@ import {Http} from "./services/http-client";
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RegisterComponent } from './register/register.component';
+import { NewLabelComponent } from './new-label/new-label.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     LoggedInComponent,
     SignUpComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewLabelComponent
   ],
   imports: [
     NgbModule,
