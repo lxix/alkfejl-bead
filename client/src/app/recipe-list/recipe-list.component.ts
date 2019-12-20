@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Http} from "../services/http-client";
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,7 +13,7 @@ export class RecipeListComponent implements OnInit {
 
   recipes = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private log: Http) { }
 
   ngOnInit() {
     const httpOptions = {
@@ -25,6 +26,10 @@ export class RecipeListComponent implements OnInit {
     this.http.get(this.recipesUrl, httpOptions).subscribe((data: any[]) => {
       this.recipes = data;
     });
+  }
+
+  loggedIn() {
+    return this.log.loggedIn()
   }
 
 }

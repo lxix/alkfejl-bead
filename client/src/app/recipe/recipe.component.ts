@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {ActivatedRoute} from "@angular/router";
+import {Http} from "../services/http-client";
+
 
 @Component({
   selector: 'app-recipe',
@@ -20,7 +22,7 @@ export class RecipeComponent implements OnInit {
   data;
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private log: Http) { }
 
   ngOnInit() {
 
@@ -50,11 +52,16 @@ export class RecipeComponent implements OnInit {
   deleteRecipe(id) {
     return this.http.delete(this.recipeUrl + '/' + id, {headers: this.httpOptions.headers})
       .toPromise()
-      .then(() => null)
+      .then(() => {
+        location.reload();
+      })
       .catch((e) => {
         console.log(e);
       });
   }
 
+  loggedIn(): boolean {
+    return this.log.loggedIn()
+  }
 
 }

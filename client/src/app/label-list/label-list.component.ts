@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Http} from "../services/http-client";
 
 @Component({
   selector: 'app-label-list',
@@ -19,7 +20,7 @@ export class LabelListComponent implements OnInit {
     })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private log: Http) { }
 
 
   ngOnInit() {
@@ -44,6 +45,10 @@ export class LabelListComponent implements OnInit {
       .catch((e) => {
         console.log(e);
       });
+  }
+
+  loggedIn() {
+    return this.log.loggedIn()
   }
 
 }
