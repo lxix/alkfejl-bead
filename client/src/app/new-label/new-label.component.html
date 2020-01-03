@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-8">
+    <h4>New ingredient</h4>
+    <form (submit)="onSubmit($event); goHome();">
+      <div class="form-group">
+        <label for="label">Ingredient</label>
+        <input type="text" name="label" class="form-control" id="label" placeholder="New ingredient">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
